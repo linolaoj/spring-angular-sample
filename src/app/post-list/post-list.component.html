@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>Post List</mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let post of posts">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/post-edit', post.id]">{{post.text}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<button mat-fab color="primary" [routerLink]="['/post-add']">Add</button>
