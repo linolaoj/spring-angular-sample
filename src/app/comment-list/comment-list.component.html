@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-subtitle>
+    Comments
+  </mat-card-subtitle>
+  <mat-card-content>
+    <mat-list>
+        <mat-list-item *ngFor="let comment of comments">
+          <p mat-line>
+            {{comment.text}}
+          </p>
+        </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  
+  <mat-card-footer>
+    <form #commentForm="ngForm" (ngSubmit)="save(commentForm.value)">
+      <input type="hidden" name="postId" [(ngModel)]="post.id">
+      <mat-form-field>
+        <textarea matInput placeholder="Comment" [(ngModel)]="text"
+        required name="text" #name></textarea>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+        [disabled]="!commentForm.form.valid">
+        Add Comment
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card-footer>
+</mat-card>

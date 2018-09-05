@@ -13,7 +13,9 @@ import { AppComponent } from './app.component';
 
 import { PostService } from './shared/post/post.service';
 import { PostListComponent } from './post-list/post-list.component';
-import { PostEditComponent } from './post-edit/post-edit.component'
+import { PostEditComponent } from './post-edit/post-edit.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { CommentListComponent } from './comment-list/comment-list.component'
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/post-list', pathMatch: 'full' },
@@ -28,6 +30,14 @@ const appRoutes: Routes = [
   {
     path: 'post-edit/:id',
     component: PostEditComponent
+  },
+  {
+    path: 'post-detail/:id',
+    component: PostDetailComponent
+  },
+  {
+    path: 'post-add-comment/:id',
+    component: PostDetailComponent
   }
 ];
 
@@ -35,7 +45,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     PostListComponent,
-    PostEditComponent
+    PostEditComponent,
+    PostDetailComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,

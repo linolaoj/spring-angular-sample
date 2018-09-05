@@ -13,6 +13,10 @@ export class PostService {
     return this.http.get(this.API + '/post-list');
   }
 
+  getComments(id: string) {
+    return this.http.get(this.POST_API + '/' + id + '/comments');
+  }
+
   get(id: string) {
     return this.http.get(this.POST_API + '/' + id);
   }
@@ -23,6 +27,16 @@ export class PostService {
       result = this.http.put(post.href, post);
     } else {
       result = this.http.post(this.POST_API, post);
+    }
+    return result;
+  }
+
+  saveComment(comment: any, postId: string): Observable<any> {
+    let result: Observable<Object>;
+    if (comment['href']) {
+      result = this.http.put(comment.href, comment);
+    } else {
+      result = this.http.post(this.POST_API + '/' + postId + '/comments', comment);
     }
     return result;
   }

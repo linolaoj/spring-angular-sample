@@ -6,6 +6,7 @@
         <h3 mat-line>
           <a mat-button [routerLink]="['/post-edit', post.id]">{{post.text}}</a>
         </h3>
+        <button mat-button color="primary" [routerLink]="['/post-detail', post.id]">view</button>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
